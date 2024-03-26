@@ -46,7 +46,7 @@ def _load_from_file(resources_dir: Path):
     web_data = toml.loads((resources_dir / "website.toml").read_text())
 
     # Jinja templates
-    environment = Environment(loader=FileSystemLoader("ecosystem/html_templates/"))
+    environment = Environment(loader=FileSystemLoader("ecosystem/html_templates/"), autoescape=True)
     templates = {
         "website": environment.get_template("webpage.html.jinja"),
         "card": environment.get_template("card.html.jinja"),
